@@ -7,6 +7,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import model.ParticipacaoProjeto;
 
@@ -39,13 +43,22 @@ public class CadastroParticipacao extends HttpServlet {
 		// TODO Auto-generated method stub
 		ParticipacaoProjeto Participacao = new ParticipacaoProjeto();
 		
-		Participacao.setProcesso_projeto(request.getParameter("numero"));
-		//Participacao.setInicio_participacao(request.getParameter("dataInicio"));
-		//Participacao.setCargaHoraria integer.par(request.getParameter("ch"));
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println(request.getParameter("ch"));
-		
-	}
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		Date date = null;
+		try {
+			date = sdf.parse(request.getParameter("dataInicio"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		
+		Integer ch = Integer.parseInt(request.getParameter("ch"));
+		
+		Participacao.setProcesso_projeto(request.getParameter("numero"));
+		Participacao.setInicio_participacao(cal);
+		Participacao.setCargaHoraria (ch);
+	}
 }
