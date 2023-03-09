@@ -1,4 +1,4 @@
-package br.ufrrj.si.web2.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,20 +6,10 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
-@Entity
 public class ParticipacaoProjeto {
 
-	@Id
-	@GeneratedValue
+
 	private Integer id;
 	
 	private String nome_projeto;
@@ -31,21 +21,16 @@ public class ParticipacaoProjeto {
 	
 	private Boolean finalizada = false;
 	
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar inicio_participacao = new GregorianCalendar(new Locale("pt_BR"));
 	
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)//enquanto igual ao início, e "finalizada" igual a false, deve ser ignorado
+	//enquanto igual ao início, e "finalizada" igual a false, deve ser ignorado
 	private Calendar fim_participacao = new GregorianCalendar(new Locale("pt_BR"));
-	
-	@ManyToOne
+
 	private Aluno aluno;
 	
-	@OneToMany(mappedBy = "participacao_relacionada")
 	private List<Homologacao> homologacoes = new ArrayList<Homologacao>();
 
-	
+	private Integer cargaHoraria;
 	
 	public Integer getId_participacao() {
 		return id;
@@ -134,6 +119,14 @@ public class ParticipacaoProjeto {
 
 	public void setHomologacoes(List<Homologacao> homologacoes) {
 		this.homologacoes = homologacoes;
+	}
+
+	public Integer getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(Integer cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
 	}
 	
 }

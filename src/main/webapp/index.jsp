@@ -8,7 +8,7 @@
 </head>
 <body>
 	AAAAAAAAAAAAAAAAA
-	<form method="post" action="">
+	<form method="post" action="Servlet">
 	
 		<input type="submit">
 	</form>

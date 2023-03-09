@@ -19,4 +19,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CadastroUsuario</display-name>
+    <servlet-name>CadastroUsuario</servlet-name>
+    <servlet-class>controller.CadastroUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastroUsuario</servlet-name>
+    <url-pattern>/CadastroUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CadastroParticipacao</display-name>
+    <servlet-name>CadastroParticipacao</servlet-name>
+    <servlet-class>controller.CadastroParticipacao</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CadastroParticipacao</servlet-name>
+    <url-pattern>/CadastroParticipacao</url-pattern>
+  </servlet-mapping>
 </web-app>

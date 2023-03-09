@@ -2,16 +2,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 
-@Entity
 public class Aluno extends Usuario{
 	
-	@Column(unique = true)
 	private String matricula;
-	@OneToMany(mappedBy = "aluno")
 	private List<ParticipacaoProjeto> participacao_projetos = new ArrayList<ParticipacaoProjeto>();
 	
 	
