@@ -1,31 +1,18 @@
-package br.ufrrj.si.web2.model;
+package model;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
-@Entity
 public class Documento {
 
-	@Id
-	@GeneratedValue
 	private Integer id_documento;
 //	@Column(nullable = false)
 	private String path_documento;
-	
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
+
 	private Calendar dataDocumento = new GregorianCalendar(TimeZone.getTimeZone("GMT-3"));
-	
-	@ManyToOne
+
 	private Aluno aluno;	
 	
 	public Integer getId_documento() {

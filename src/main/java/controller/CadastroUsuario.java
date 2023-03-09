@@ -1,14 +1,18 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Aluno;
+import model.Banco;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * Servlet implementation class CadastroUsuario
@@ -45,7 +49,13 @@ public class CadastroUsuario extends HttpServlet {
 		Aluno.setLogin(request.getParameter("login"));
 		Aluno.setSenha(request.getParameter("senha"));
 		
-		response.setContentType("text/html");
+		Banco banco = new Banco();
+		banco.addmapa(Aluno.getSenha(), Aluno.getLogin());
+		
+		banco.adicionaAlunos(Aluno);
+			
+		RequestDispatcher xx = request.getRequestDispatcher("/home_aluno.jsp");
+		xx.forward(request, response);	
 	}
 
 }

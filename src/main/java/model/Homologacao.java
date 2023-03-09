@@ -1,41 +1,23 @@
-package br.ufrrj.si.web2.model;
+package model;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
-@Entity
 public class Homologacao {
 
-	@Id
-	@GeneratedValue
 	private Integer id_homologacao;	
-	
-	@OneToOne
+
 	private Coordenacao homologador;
-	
-	@OneToOne
+
 	private Aluno aluno;
 	
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar timestamp_homologacao = new GregorianCalendar(TimeZone.getTimeZone("GMT-3"),new Locale("pt_BR"));
-	
-	@OneToOne(cascade = CascadeType.MERGE)
+
 	private Documento documentacao_comprobatoria;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
 	private ParticipacaoProjeto participacao_relacionada;
 	
 	private Integer qtde_horas;

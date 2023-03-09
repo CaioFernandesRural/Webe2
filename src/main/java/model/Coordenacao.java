@@ -1,13 +1,8 @@
-package br.ufrrj.si.web2.model;
+package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 
-@Entity
 public class Coordenacao extends Usuario{
 
-	
-	@Column(unique = true)
 	private String matricula_siape;
 	private Boolean ContaAtiva = true; 
 	

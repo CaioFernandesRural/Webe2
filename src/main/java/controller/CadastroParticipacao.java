@@ -59,6 +59,9 @@ public class CadastroParticipacao extends HttpServlet {
 		
 		Participacao.setProcesso_projeto(request.getParameter("numero"));
 		Participacao.setInicio_participacao(cal);
-		Participacao.setCargaHoraria (ch);
+		Participacao.setCargaHoraria(ch);
+		
+		request.setAttribute("Participacao", Participacao);
+		
 	}
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Lista de Participações</h1>
-<a href=""><button>Ver</button></a>
-<a href="/cadastro_participacao.jsp"><button>Criar nova participação</button></a>
+<a href="ParticipacoesAluno"><button>Ver</button></a>
+<a href="/trabe/cadastro_participacao.jsp"><button>Criar nova participação</button></a>
 </body>
 </html>
