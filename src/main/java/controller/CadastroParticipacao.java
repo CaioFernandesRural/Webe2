@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,8 +10,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import model.ParticipacaoProjeto;
 
@@ -60,8 +63,22 @@ public class CadastroParticipacao extends HttpServlet {
 		Participacao.setProcesso_projeto(request.getParameter("numero"));
 		Participacao.setInicio_participacao(cal);
 		Participacao.setCargaHoraria(ch);
+
+		ServletContext servletContext = getServletContext();
 		
-		request.setAttribute("Participacao", Participacao);
+		if(servletContext.getAttribute("listaParticipacao") == null) {
+			 List<ParticipacaoProjeto> listaParticipacao = new ArrayList<ParticipacaoProjeto>();
+			 listaParticipacao.add(Participacao);
+			 servletContext.setAttribute("listaParticipacao", listaParticipacao);
+		} else {
+			List<ParticipacaoProjeto> listaParticipacao = (List<ParticipacaoProjeto>) servletContext.getAttribute("listaParticipacao");
+			listaParticipacao.add(Participacao);
+			servletContext.setAttribute("listaParticipacao", listaParticipacao);
+		}
+		
+		response.setContentType("text/html");
+    	PrintWriter out = response.getWriter();  
+        out.println("<h1>CADASTRADO.</h1>");
 		
 	}
 }

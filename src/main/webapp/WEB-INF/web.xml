@@ -59,4 +59,24 @@
     <servlet-name>home</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExibirParticipacoes</display-name>
+    <servlet-name>ExibirParticipacoes</servlet-name>
+    <servlet-class>controller.ExibirParticipacoes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExibirParticipacoes</servlet-name>
+    <url-pattern>/ExibirParticipacoes</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Participacoes</display-name>
+    <servlet-name>Participacoes</servlet-name>
+    <servlet-class>controller.Participacoes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Participacoes</servlet-name>
+    <url-pattern>/Participacoes</url-pattern>
+  </servlet-mapping>
 </web-app>
