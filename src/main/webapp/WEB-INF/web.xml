@@ -79,4 +79,14 @@
     <servlet-name>Participacoes</servlet-name>
     <url-pattern>/Participacoes</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginUsuario</display-name>
+    <servlet-name>LoginUsuario</servlet-name>
+    <servlet-class>controller.LoginUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUsuario</servlet-name>
+    <url-pattern>/LoginUsuario</url-pattern>
+  </servlet-mapping>
 </web-app>
