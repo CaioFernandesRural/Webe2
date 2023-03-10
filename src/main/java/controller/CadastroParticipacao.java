@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -76,9 +77,8 @@ public class CadastroParticipacao extends HttpServlet {
 			servletContext.setAttribute("listaParticipacao", listaParticipacao);
 		}
 		
-		response.setContentType("text/html");
-    	PrintWriter out = response.getWriter();  
-        out.println("<h1>CADASTRADO.</h1>");
+		RequestDispatcher xx = request.getRequestDispatcher("/home_aluno.jsp");
+		xx.forward(request, response);
 		
 	}
 }

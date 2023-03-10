@@ -38,7 +38,9 @@ public class Participacoes extends HttpServlet {
 	    List<ParticipacaoProjeto> listaParticipacao = (List<ParticipacaoProjeto>) servletContext.getAttribute("listaParticipacao");
     	
 	    for(ParticipacaoProjeto Participacao : listaParticipacao) {
-	        out.println(Participacao.getProcesso_projeto());
+	    	out.println("<p>Número do Processo:</p>" + Participacao.getProcesso_projeto());
+            out.println("<p>Data de Início:</p>" + Participacao.getInicio_participacao().getTime());
+            out.println("<p>Carga Horária:</p>" + Participacao.getCargaHoraria());
 	    }
 	}
 
